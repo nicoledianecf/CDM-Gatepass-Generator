@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDM Gatepass Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="CDM Logo.png">
+    <h2>Colegio de Montalban <br>
+      Gatepass Generator</h2>
+    <form id="gatepassForm">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="purpose">Purpose of Visit:</label>
+  <select id="purpose" name="purpose" onchange="toggleOtherPurpose()" required>
+    <option value="" disabled selected>Select purpose</option>
+    <option value="Inquiry">Inquiry</option>
+    <option value="Enrollment Process">Enrollment Process</option>
+    <option value="Transcript of Records">Transcript of Records</option>
+    <option value="Diploma">Diploma</option>
+    <option value="Graduation Picture">Graduation Picture</option>
+    <option value="Form 137">Form 137</option>
+    <option value="Registration Form">Registration Form</option>
+    <option value="Certificate of Grades">Certificate of Grades</option>
+    <option value="Others">Others, please specify</option>
+  </select>
+
+  <div id="otherPurposeDiv" style="display: none;">
+    <label for="otherPurpose">Please specify:</label>
+    <input type="text" id="otherPurpose" name="otherPurpose">
+  </div>
+
+      <label for="date">Date of Visit:</label>
+      <input type="date" id="date" name="date" required>
+
+      <button type="button" onclick="generateGatepass()">Generate Gatepass</button>
+      <button type="button" onclick="downloadGatepass()">Download Gatepass</button>
+    </form>
+
+    <canvas id="gatepassCanvas" width="500" height="250" style="display: none;"></canvas>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
